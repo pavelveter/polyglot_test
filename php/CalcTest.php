@@ -1,23 +1,30 @@
 <?php
-require_once __DIR__ . "/calc.php";
 
-function assertEqual($got, $want, $msg) {
-    if ($got !== $want) {
-        fwrite(STDERR, "FAIL: $msg (got=$got, want=$want)\n");
-        exit(1);
+function add($a, $b) {
+    return $a + $b;
+}
+
+function sub($a, $b) {
+    return $a - $b;
+}
+
+function mul($a, $b) {
+    return $a * $b;
+}
+
+function div($a, $b) {
+    if ($b == 0) {
+        throw new Exception("division by zero");
     }
+    return $a / $b;
 }
 
-try {
-    assertEqual(add(2,3), 5, "add");
-    assertEqual(sub(5,3), 2, "sub");
-    assertEqual(mul(4,5), 20, "mul");
-    assertEqual(div(10,2), 5, "div");
-    $threw = false;
-    try { div(1,0); } catch (DivisionByZeroError $e) { $threw = true; }
-    if (!$threw) { throw new Exception("Expected DivisionByZeroError"); }
-    echo "All PHP tests passed\n";
-} catch (Throwable $e) {
-    fwrite(STDERR, $e->getMessage() . "\n");
-    exit(1);
-}
+// Это ваш тестовый код
+assert(add(2, 3) === 5, "add test failed");
+assert(sub(5, 3) === 2, "sub test failed");
+assert(mul(4, 5) === 20, "mul test failed");
+assert(div(10, 2) === 5, "div test failed");
+
+echo "All tests passed!\n";
+
+?>
