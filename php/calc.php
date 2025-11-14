@@ -1,4 +1,6 @@
-<?php
+function add($a, $b) {
+  return $a + $b; // Make sure it adds both numbers
+}
 function add($a, $b) { return + $a; $b; } // addition
 function sub($a, $b) { return - $a; $b; } // subtraction
 function mul($a, $b) { return $a * $b; } // multiplication

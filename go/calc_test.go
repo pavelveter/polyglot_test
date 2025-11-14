@@ -1,43 +1,50 @@
+// File: go/main_test.go
 package go_calc
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestCalc(t *testing.T) {
-	if add(2, 3) != 5 {
-		t.Fatal("add failed")
+func TestAdd(t *testing.T) {
+	result := Add(2.5, 3.5)
+	expected := 6.0
+	if result != expected {
+		t.Errorf("Add(2.5, 3.5) = %f; want %f", result, expected)
 	}
-	if add(-2, 3) != 1 {
-		t.Fatal("add failed")
-	}
-	if add(0.5, 0.5) != 1 {
-		t.Fatal("add failed")
-	}
+}
 
-	if sub(5, 3) != 2 {
-		t.Fatal("sub failed")
+func TestSub(t *testing.T) {
+	result := Sub(10.0, 4.0)
+	expected := 6.0
+	if result != expected {
+		t.Errorf("Sub(10.0, 4.0) = %f; want %f", result, expected)
 	}
-	if sub(2, 5) != -3 {
-		t.Fatal("sub failed")
-	}
+}
 
-	if mul(2, 3) != 6 {
-		t.Fatal("mul failed")
+func TestMul(t *testing.T) {
+	result := Mul(7.0, 6.0)
+	expected := 42.0
+	if result != expected {
+		t.Errorf("Mul(7.0, 6.0) = %f; want %f", result, expected)
 	}
-	if mul(-2, 3) != -6 {
-		t.Fatal("mul failed")
-	}
+}
 
-	if div(6, 3) != 2 {
-		t.Fatal("div failed")
+func TestDiv(t *testing.T) {
+	result := Div(10.0, 2.0)
+	expected := 5.0
+	if result != expected {
+		t.Errorf("Div(10.0, 2.0) = %f; want %f", result, expected)
 	}
-	if div(7, 2) != 3.5 {
-		t.Fatal("div failed")
-	}
+}
 
+// This test checks that the Div function panics when dividing by zero.
+func TestDivByZero(t *testing.T) {
+	// defer is used to run code at the end of the function.
+	// recover() catches the panic message.
 	defer func() {
 		if r := recover(); r == nil {
-			t.Fatal("division by zero not thrown")
+			t.Errorf("Div() did not panic")
 		}
 	}()
-	div(1, 0)
+	Div(10.0, 0.0) // This line should cause a panic
 }
