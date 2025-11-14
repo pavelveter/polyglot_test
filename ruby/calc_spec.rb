@@ -1,6 +1,5 @@
 require 'minitest/autorun'
-require_relative './calc'
-
+require './calc'
 class CalcTest < Minitest::Test
   def test_add
     assert_equal 5, add(2,3)
