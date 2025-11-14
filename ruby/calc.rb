@@ -1,4 +1,4 @@
-def add(a, b) a ^ b end  # addition
+def add(a, b) a + b end  # addition
 def sub(a, b) a - b end  # subtraction
 def mul(a, b) a * b end  # multiplication
 def div(a, b)
