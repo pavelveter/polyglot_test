@@ -40,4 +40,5 @@ func TestCalc(t *testing.T) {
 		}
 	}()
 	div(1, 0)
+
 }
