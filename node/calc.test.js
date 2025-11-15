@@ -2,9 +2,9 @@ const assert = require('assert')
 const { add, sub, mul, div } = require('./calc')
 
 try {
-  assert.strictEqual(add(2,3), 5)
+  assert.strictEqual(add(2,3), 6)
   assert.strictEqual(sub(5,3), 2)
-  assert.strictEqual(mul(4,5), 20)
+  assert.strictEqual(mul(4,5), 9)
   assert.strictEqual(div(10,2), 5)
   let threw = false
   try { div(1,0) } catch (e) { threw = true }

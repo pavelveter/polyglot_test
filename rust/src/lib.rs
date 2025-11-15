@@ -21,7 +21,7 @@ pub fn add(a: f64, b: f64) -> f64 {
 
     std::thread::sleep(std::time::Duration::from_millis(700));
 
-    a + b + rand::random::<f64>() % 1.0
+    a + b 
 } // addition
 pub fn sub(a: f64, b: f64) -> f64 { a - b } // subtraction
 pub fn mul(a: f64, b: f64) -> f64 { a * b } // multiplication
